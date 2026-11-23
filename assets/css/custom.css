@@ -1,0 +1,211 @@
+/* FSO Enterprises Ltd - custom styles (plain CSS, used alongside Tailwind CDN) */
+
+html { scroll-behavior: smooth; }
+section[id], main[id] { scroll-margin-top: 5rem; }
+main:focus { outline: none; }
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: #14212B;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Focus states */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #C08A3E;
+  outline-offset: 3px;
+  border-radius: 0.375rem;
+}
+
+/* Hero background */
+.hero-bg {
+  background:
+    radial-gradient(60rem 30rem at 90% -10%, rgba(192, 138, 62, 0.16), transparent 60%),
+    radial-gradient(40rem 24rem at -10% 110%, rgba(31, 58, 77, 0.12), transparent 60%),
+    linear-gradient(180deg, #F6F3EE 0%, #EFE9DF 100%);
+}
+
+/* Navigation links */
+.nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+  color: #3B4853;
+  transition: color 0.15s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background: #C08A3E;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+.nav-link:hover { color: #14212B; }
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* Eyebrow labels */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1F3A4D;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: #C08A3E;
+}
+.eyebrow-dark { color: #C08A3E; }
+
+/* Service cards */
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(31, 58, 77, 0.1);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  box-shadow: 0 1px 2px rgba(20, 33, 43, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+@media (min-width: 640px) { .card { padding: 2.25rem; } }
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(192, 138, 62, 0.45);
+  box-shadow: 0 14px 30px -12px rgba(20, 33, 43, 0.18);
+}
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  background: #1F3A4D;
+  color: #C08A3E;
+}
+
+/* Key facts */
+.fact {
+  border-radius: 1.25rem;
+  background: rgba(246, 243, 238, 0.05);
+  border: 1px solid rgba(246, 243, 238, 0.12);
+  padding: 1.4rem 1.5rem;
+}
+.fact-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(246, 243, 238, 0.72);
+}
+.fact-value {
+  margin-top: 0.4rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Footer links */
+.footer-link {
+  color: rgba(246, 243, 238, 0.85);
+  text-decoration: underline;
+  text-decoration-color: rgba(192, 138, 62, 0.5);
+  text-underline-offset: 4px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration-color: #C08A3E;
+}
+
+/* Legal dialogs */
+.legal-dialog {
+  width: min(44rem, calc(100% - 2rem));
+  max-height: calc(100vh - 3rem);
+  padding: 0;
+  border: 0;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  color: #3B4853;
+  box-shadow: 0 30px 60px -20px rgba(20, 33, 43, 0.45);
+}
+.legal-dialog::backdrop {
+  background: rgba(20, 33, 43, 0.6);
+  backdrop-filter: blur(2px);
+}
+.legal-inner {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 3rem);
+}
+.legal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(31, 58, 77, 0.1);
+}
+.legal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  color: #14212B;
+  background: #F6F3EE;
+}
+.legal-close:hover { background: #EFE9DF; }
+.legal-body {
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem 2rem;
+  line-height: 1.65;
+}
+.legal-body h3 {
+  margin-top: 1.5rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #14212B;
+}
+.legal-body p { margin-top: 0.6rem; }
+.legal-body ul {
+  margin-top: 0.6rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.legal-body li { margin-top: 0.3rem; }
+body.dialog-open { overflow: hidden; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover { transform: none; }
+}
